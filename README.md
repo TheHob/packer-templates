@@ -12,9 +12,7 @@ This is a workflow that's designed to allow you to trigger local builds of enter
 This is particularly useful for customers on Azure, as it's difficult to share machine images with them.
 
 #### Prerequisites
-- If you don't already have credentials to access HashiCorp enterprise binaries, add an appropriate entry for yourself (if you're an employee) in the [licensing binaries repository](https://github.com/hashicorp/licensing-binaries).
-- After adding yourself, you can find your credentials in the output of this [terraform job](https://tfe.hashicorp.engineering/terraform/licensing/environments/binaries/changes/runs).
-  - The above procedure for getting your binary credentials is documented in the [SE Handbook](https://docs.google.com/document/d/1lRYgJMIGejYbaxTpZmc3hnbj7aWRg7dFXCN3_x87mYQ/edit#heading=h.6blw4fxx8vz1).
+- Credentials to access HashiCorp enterprise binaries.
 - If you are building Azure images, you'll need to follow the steps at the below links to set up and authenticate with an Azure account.
   - [Azure setup instructions](https://github.com/tdsacilowski/azure-consul/blob/master/README.md#deployment-prerequisites)
   - This [Azure RM setup guide](https://www.terraform.io/docs/providers/azurerm/index.html) is linked in the above documentation.
@@ -51,5 +49,5 @@ After authenticating (see above) with Azure, perform the following steps.
   ```
 
 ***Notes:***
-- Right now using the [hashistack-azure](https://github.com/hashicorp-guides/hashistack/tree/chad_hashistack_azure/terraform-azure) and an image resulting from the above, it's possible to deploy a HashiStack cluster (some functional tests pending) on Ubuntu and RHEL. You may need to start Vault on RHEL.
+- Right now using the [hashistack-azure](https://github.com/TheHob/hashistack-poc/tree/master/terraform-azure) and an image resulting from the above, it's possible to deploy a HashiStack cluster (some functional tests pending) on Ubuntu and RHEL. You may need to start Vault on RHEL.
 - Make sure to source `versions.sh` and `local-variables.sh` before each packer build as the AWS enterprise download URLs expire after 10 minutes.
