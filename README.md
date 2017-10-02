@@ -6,7 +6,7 @@ This repo contains Packer templates used for modules in hashicorp-modules
 ## HashiStack  
 Contains provider specific templates that installs HashiCorp software on a single node (Consul, Nomad, Vault, consul-template and envconsul).
 
-### Building HashiStack images locally (outside of the CI pipeline)
+### Building HashiStack images locally
 This is a workflow that's designed to allow you to trigger local builds of enterprise Packer images. This functionality is currently under development. The example below is all that's been tested.
 
 This is particularly useful for customers on Azure, as it's difficult to share machine images with them.
