@@ -21,33 +21,6 @@
   },
     "builders": [
   {
-      "name": "azure-managed-image-RHEL-7.3-systemd",
-      "type": "azure-arm",
-      "client_id": "{{ user `azure_client_id` }}",
-      "client_secret": "{{ user `azure_client_secret` }}",
-      "subscription_id": "{{ user `azure_subscription_id` }}",
-      "managed_image_resource_group_name": "{{ user `azure_resource_group` }}",
-      "location": "{{ user `azure_location` }}",
-      "image_publisher": "RedHat",
-      "image_offer": "RHEL",
-      "image_sku": "7.3",
-      "os_type": "Linux",
-      "ssh_username": "packer",
-      "managed_image_name": "{{ user `environment` }}-hashistack-server-{{ user `distribution` }}-RHEL_7.3-{{timestamp}}",
-      "azure_tags": {
-          "Name": "HashiStack Server",
-          "System": "HashiStack",
-          "Product": "HashiStack",
-          "Environment": "{{ user `environment` }}",
-          "Built-By": "{{ user `vcs_name` }}",
-          "OS": "RHEL",
-          "OS-Version": "7.3",
-          "Consul-Version": "{{ user `consul_version` }}",
-          "Nomad-Version": "{{ user `nomad_version` }}",
-          "Vault-Version": "{{ user `vault_version` }}"
-      }
-  },
-  {
       "name": "azure-managed-image-ubuntu-16.04-systemd",
       "type": "azure-arm",
       "client_id": "{{ user `azure_client_id` }}",
@@ -104,7 +77,7 @@
     },
     {
       "type": "shell",
-      "only": ["azure-managed-image-RHEL-7.3-systemd", "azure-managed-image-ubuntu-16.04-systemd"],
+      "only": ["azure-managed-image-ubuntu-16.04-systemd"],
       "inline": [
         "bash /tmp/shared/scripts/base-aws.sh"
       ]
@@ -133,7 +106,7 @@
     },
     {
       "type": "shell",
-      "only": ["azure-managed-image-RHEL-7.3-systemd", "azure-managed-image-ubuntu-16.04-systemd"],
+      "only": ["azure-managed-image-ubuntu-16.04-systemd"],
       "inline": [
         "bash /tmp/consul/scripts/install-consul-systemd.sh"
       ]
@@ -150,7 +123,7 @@
     },
     {
       "type": "shell",
-      "only": ["azure-managed-image-RHEL-7.3-systemd", "azure-managed-image-ubuntu-16.04-systemd"],
+      "only": ["azure-managed-image-ubuntu-16.04-systemd"],
       "inline": [
         "bash /tmp/nomad/scripts/install-nomad-systemd.sh"
       ]
@@ -192,7 +165,7 @@
     },
     {
       "type": "shell",
-      "only": ["azure-managed-image-RHEL-7.3-systemd", "azure-managed-image-ubuntu-16.04-systemd"],
+      "only": ["azure-managed-image-ubuntu-16.04-systemd"],
       "inline": [
         "bash /tmp/vault/scripts/install-vault-systemd.sh"
       ]
@@ -205,7 +178,7 @@
     },
     {
       "type": "shell",
-      "only": ["azure-managed-image-RHEL-7.3-systemd", "azure-managed-image-ubuntu-16.04-systemd"],
+      "only": ["azure-managed-image-ubuntu-16.04-systemd"],
       "inline": [
         "bash /tmp/shared/scripts/cleanup-aws.sh"
       ]

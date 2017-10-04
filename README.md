@@ -43,8 +43,7 @@ After authenticating (see above) with Azure, perform the following steps.
   #
   # Run the next two steps before each packer build to regenerate URLs,
   # as the enterprise download URLs expire after 10 minutes#
-  $ source ../versions.sh
-  $ source ../local-variables.sh
+  $ source ../setup.sh
   $ AZURE_RESOURCE_GROUP="PackerImages" AZURE_LOCATION="West US" PACKER_ENVIRONMENT="dev" packer build hashistack-azure.json
   ```
 
